@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Label measurement data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for label.data {Animal}"><tr><td>label.data {Animal}</td><td align="right">R Documentation</td></tr></table>
+<h2>Label measurement data</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function labels measurement data according to behavioral
+observations. The format of behavioral observations follows CowLog
+convention (See details).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+label.data(data, observation, db = 5, de = 5, min.length = 20)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+A data.frame holding the measurement data, one of the
+elements needs to be named time and hold the time stamp for each row.</td></tr>
+<tr valign="top"><td><code>observation</code></td>
+<td>
+A data.frame with behavioral observations, one of
+the elements needs to be named time and hold the time stamps for the
+behaviors and another named behavior and hold the labels for
+respective behaviors. See details.</td></tr>
+<tr valign="top"><td><code>db</code></td>
+<td>
+Specifies the delay in seconds from the observation to the start of
+labeling, this is sometimes useful if the data is used for model
+building and we want to eliminate the temporal inaccury due to
+behavioral observations. Defaults to 5</td></tr>
+<tr valign="top"><td><code>de</code></td>
+<td>
+Similarly to db, specifies the (negative) delay in seconds
+from the end of observation. Defaults to 5</td></tr>
+<tr valign="top"><td><code>min.length</code></td>
+<td>
+descibes the minimum length of
+the labeled data vector. Again sometimes we want to have long enough
+data vectors for model building and leave out too short bits. This is
+the length after substracting db and de. Defaults to 20</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+The time stamp in behavior and data need to be in the same format i.e. POSIXt or seconds from the start in numeric
+format. The POSIXt is naturally more convinient since then the
+behavioral observation and the measurement need not to begin from the
+same time point.
+The data.frame observation need to have at least two elements: time and
+behavior (any additional elements are ignored). The time specifies the
+start of the corresponding behavior and the start time of the next
+behavior is used as the end of the previous one.
+The format is adopted from CowLog behavioral coding software
+(http://www.mm.helsinki.fi/~mpastell/CowLog).
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+The original data with two additional elements: <code>label</code> which contains
+the labels for each row in the data and <code>freq</code> which tells the number of
+the label counting from the beginning.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Matti Pastell &lt;matti.pastell@helsinki.fi&gt;
+</p>
+
+
+
+<hr><div align="center">[Package <em>Animal</em> version 1.01 <a href="00Index.html">Index]</a></div>
+
+</body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Clean RIC roughage intake log file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for clean.RIC {Animal}"><tr><td>clean.RIC {Animal}</td><td align="right">R Documentation</td></tr></table>
+<h2>Clean RIC roughage intake log file</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Performs the following clean ups on RIC roughage intake files:
+Removes lines with Cow number 0 and lines with negative feed intake
+and visits with 0 duration. Equal using clean=T with read.RIC.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+clean.RIC(data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+A data.frame read in with read.RIC</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+Cleaned data.frame</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Matti Pastell &lt;matti.pastell@helsinki.fi&gt;
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="read.RIC.html">read.RIC</a></code>, <code><a href="bouts.RIC.html">bouts.RIC</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(RIC)
+cleaned.data &lt;- clean.RIC(RIC)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>Animal</em> version 1.01 <a href="00Index.html">Index]</a></div>
+
+</body></html>

@@ -1,0 +1,29 @@
+\HeaderA{week}{Convert dates to week numbers}{week}
+\begin{Description}\relax
+This function extracts the week number from date objects
+\end{Description}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A POSIXt object
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+\begin{ldescription}
+\item[\code{week}] Week number of the input object
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{day}{day}}, \code{\LinkA{day.string}{day.string}},
+\code{\LinkA{hour}{hour}}, \code{\LinkA{month}{month}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+date <- Sys.time()
+week.number <- week(date)
+print(week.number)
+\end{ExampleCode}
+\end{Examples}
+

@@ -1,0 +1,36 @@
+#A function to read in Insentec feed data log files
+read.RIC <- function(file,clean=TRUE){
+  #Read data file
+  data <- read.csv(file,header=FALSE) 
+  #Give column names
+  names(data) <- c('transponder','cowID','trough','begin','end',
+                 'duration','begin.kg','end.kg','feed.type','intake',
+                   'DM','energy','protein','crude.fibre','fat','ash')
+  data$begin <- as.character(data$begin)
+  data$end <- as.character(data$end)
+
+  #Replace empty strings in times with 0
+  #(insentec writes the time zero as ' 0' and not '00')
+  data$begin <- gsub(pattern=' ', '0',data$begin)
+  data$end <- gsub(pattern=' ', '0',data$end)
+
+  #Add the date from file name to time stamps
+  f.name <- file
+  file.date <- paste('20',substr(f.name,3,4),'-',substr(f.name,5,6),
+                     '-', substr(f.name,7,8),sep='')
+  data$begin <- as.POSIXct(paste(file.date,data$begin))
+  data$end <- as.POSIXct(paste(file.date,data$end))
+  #Clean zero rows and negative intakes
+  if (clean==TRUE) data <- clean.RIC(data)
+  data
+}
+
+
+clean.RIC <- function(data){
+  data <- data[data$cowID!=0,]
+  data <- data[data$intake>=0,]
+  data <- data[data$duration!=0,]
+  rownames(data) <- 1:nrow(data)
+  data
+}
+

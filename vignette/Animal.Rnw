@@ -1,0 +1,182 @@
+\documentclass{article}
+\SweaveOpts{height=5,prefix=T}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{cite}
+
+
+\hypersetup{
+  pdfauthor={Matti Pastell},
+  colorlinks=TRUE,
+  linkcolor=black,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+
+%Sivujen otsikot
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection\ #1}}
+\fancyhf{} % delete current header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+% \usepackage{graphics}
+
+%Ei sisennystä
+%\setlength\parindent{0in}
+
+% Ääkköset
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{times}
+
+\begin{document}
+
+%\include{kansi}
+\title{
+\noindent \textsc{\Large Analyze Animal Behavior Data Using:}\\
+% Title
+\HRule \\
+\begin{center}
+{ \huge \bfseries Animal}\\
+\HRule \\[0.2cm]
+\end{center}
+}
+
+\author{
+\Large Matti Pastell\\
+\url{matti.pastell@helsinki.fi}\\[0.5cm]
+Department of Agrotechnology \& \\
+Center of Animal Welfare, \textit{University of Helsinki}
+}
+
+  % Matti Pastell \\ matti.pastell@helsinki.fi}
+
+\maketitle
+
+
+<<echo=F>>=
+options(width=70)
+@ 
+
+
+\section{Introduction}
+The \texttt{Animal} package is a collection of functions for analyzing animal
+behavior data originating from a variety of sources. The package was
+originally created to analyze data files from CowLog (open source
+software for coding behaviors from digital video), but the
+functionality has been extended to cover also other data sources.
+This document briefly describes some the key features of the package
+via simple examples. \\
+Animal has been created in the Research Centre of Animal Welfare
+\footnote{\url{http://http://www.vetmed.helsinki.fi/hyvinvointikeskus/english/index.htm}}.
+
+
+\section{CowLog data}
+The package has basic analysis functions for analyzing time coded
+behavioral data coded with CowLog\cite{cowlog}
+\footnote{\url{http://www.mm.helsinki.fi/~mpastell/CowLog}}.
+The main function in the package is \textit{cowAnalyze}. The function
+takes the data file name, labels of the codes and the type (event or
+state) of the codes as inputs, and gives a summary table and plot of
+the results as output. The function also removes double state
+(duplicated) errors for state codes.  
+
+Here is a short example on how to use the function in R:
+Analyze CowLog datafile named calf1.bh1: Define codes 1-3 and give them names walking, standing and lying. The descriptive statistics will appear on screen and they are also saved to variable analyzed.  
+<<fig=T>>=
+library(Animal)
+analyzed <- cowAnalyze(file='calf1.bh1',states=c(1,2,3),state.names=c('walking','standing','lying'))
+@   
+  
+
+\section{RIC data}
+The Animal package has several functions for working with the data
+produced by Insentec RIC feed measurement system. The basic function
+\texttt{read.RIC} can be used to read in RIC log files and they can be
+processed using \texttt{clean.RIC} and \texttt{bouts.RIC} functions.
+
+Example data has been read in by using read.RIC with option clean=F
+It is included in the package as dataset RIC.
+<<>>=
+data(RIC)
+@ 
+
+First we clean the data from zero rows and negative feed intakes, then
+we merge the feeding bouts that are less than 5 minutes apart.
+
+<<>>=
+RIC2 <- clean.RIC(RIC)
+bouts <- bouts.RIC(RIC2)
+head(bouts,5)
+@ 
+We can plot the feed intake distribution during different hours of the
+day with the help of \texttt{partOfDay} function.
+
+<<fig=T>>=
+boxplot(intake~partOfDay(begin),data=bouts,ylab='Feed intake (kg)',
+     xlab='Time of day',main='Default settings: start =1, nsplit=4')
+@ 
+
+\section{Summarizing time series}
+We are frequently interested in summarising events by an hour, day,
+week or a month. Say how many times a cow has visited the feeding
+trough during the day or what is the hourly sum of the feed intake for
+each animal. Animal provides functions to calculate these things
+easily with functions \texttt{hourly, daily, weekly and
+  monthly}.\footnote{These are just simple wrapper functions to aggregate, but
+I feel these are easier to remember and more convinient in frequent use}
+
+The basic syntax for all functions is similar: We need to specify the
+data vector we want to analyze, the time stamps for the data in
+POSIXct format, the summarizing function and optionally the subject.
+
+For instance, we are intersted in what is the hourly (\textit{summarized
+according to the start time of feeding event}) number of visits in
+the dataset \texttt{bouts} (created in RIC data chapter).
+
+<<fig=T>>=
+attach(bouts)
+hourly.visits <- hourly(intake,begin,fun=length)
+head(hourly.visits)
+plot(Result~Hour,data=hourly.visits,type='b')
+@ 
+
+Similarly we can summarize the hourly intake for each cow:
+
+<<fig=T>>=
+cow.intake <- hourly(intake,begin,fun=sum,subject=cowID)
+head(cow.intake)
+boxplot(Result~Hour,data=cow.intake)
+detach(bouts)
+@
+
+
+
+\begin{thebibliography}{9}
+  \bibitem{cowlog} Hänninen, L. \& Pastell, M. CowLog: Open source
+    software for coding behaviors from digital video. Behavior
+    Research Methods. (Accepted for publication) 
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+

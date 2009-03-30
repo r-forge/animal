@@ -1,0 +1,380 @@
+### * <HEADER>
+###
+attach(NULL, name = "CheckExEnv")
+assign("nameEx", 
+       local({
+	   s <- "__{must remake R-ex/*.R}__"
+           function(new) {
+               if(!missing(new)) s <<- new else s
+           }
+       }),
+       pos = "CheckExEnv")
+## Add some hooks to label plot pages for base and grid graphics
+assign("base_plot_hook",
+       function() {
+           pp <- par(c("mfg","mfcol","oma","mar"))
+           if(all(pp$mfg[1:2] == c(1, pp$mfcol[2]))) {
+               outer <- (oma4 <- pp$oma[4]) > 0; mar4 <- pp$mar[4]
+               mtext(sprintf("help(\"%s\")", nameEx()), side = 4,
+                     line = if(outer)max(1, oma4 - 1) else min(1, mar4 - 1),
+               outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
+           }
+       },
+       pos = "CheckExEnv")
+assign("grid_plot_hook",
+       function() {
+           grid::pushViewport(grid::viewport(width=grid::unit(1, "npc") - 
+                              grid::unit(1, "lines"), x=0, just="left"))
+           grid::grid.text(sprintf("help(\"%s\")", nameEx()),
+                           x=grid::unit(1, "npc") + grid::unit(0.5, "lines"),
+                           y=grid::unit(0.8, "npc"), rot=90,
+                           gp=grid::gpar(col="orchid"))
+       },
+       pos = "CheckExEnv")
+setHook("plot.new",     get("base_plot_hook", pos = "CheckExEnv"))
+setHook("persp",        get("base_plot_hook", pos = "CheckExEnv"))
+setHook("grid.newpage", get("grid_plot_hook", pos = "CheckExEnv"))
+assign("cleanEx",
+       function(env = .GlobalEnv) {
+	   rm(list = ls(envir = env, all.names = TRUE), envir = env)
+           RNGkind("default", "default")
+	   set.seed(1)
+   	   options(warn = 1)
+	   .CheckExEnv <- as.environment("CheckExEnv")
+	   delayedAssign("T", stop("T used instead of TRUE"),
+		  assign.env = .CheckExEnv)
+	   delayedAssign("F", stop("F used instead of FALSE"),
+		  assign.env = .CheckExEnv)
+	   sch <- search()
+	   newitems <- sch[! sch %in% .oldSearch]
+	   for(item in rev(newitems))
+               eval(substitute(detach(item), list(item=item)))
+	   missitems <- .oldSearch[! .oldSearch %in% sch]
+	   if(length(missitems))
+	       warning("items ", paste(missitems, collapse=", "),
+		       " have been removed from the search path")
+       },
+       pos = "CheckExEnv")
+assign("ptime", proc.time(), pos = "CheckExEnv")
+## at least one package changes these via ps.options(), so do this
+## before loading the package.
+## Use postscript as incomplete files may be viewable, unlike PDF.
+## Choose a size that is close to on-screen devices, fix paper
+ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
+grDevices::postscript("Animal-Ex.ps")
+		      
+assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
+options(contrasts = c(unordered = "contr.treatment", ordered = "contr.poly"))
+options(warn = 1)    
+library('Animal')
+
+assign(".oldSearch", search(), pos = 'CheckExEnv')
+assign(".oldNS", loadedNamespaces(), pos = 'CheckExEnv')
+cleanEx(); nameEx("bouts.RIC")
+### * bouts.RIC
+
+flush(stderr()); flush(stdout())
+
+### Name: bouts.RIC
+### Title: Merge bouts from RIC roughage intake files
+### Aliases: bouts.RIC
+
+
+### ** Examples
+
+data(RIC)
+cleaned.data <- clean.RIC(RIC)
+bouts <- bouts.RIC(cleaned.data)
+#With 8 minutes bout difference
+bouts <- bouts.RIC(cleaned.data,bout.diff=8)
+
+
+
+cleanEx(); nameEx("clean.RIC")
+### * clean.RIC
+
+flush(stderr()); flush(stdout())
+
+### Name: clean.RIC
+### Title: Clean RIC roughage intake log file
+### Aliases: clean.RIC
+
+
+### ** Examples
+
+data(RIC)
+cleaned.data <- clean.RIC(RIC)
+
+
+
+cleanEx(); nameEx("cowAnalyze")
+### * cowAnalyze
+
+flush(stderr()); flush(stdout())
+
+### Name: cowAnalyze
+### Title: Analyze time coded behavior data
+### Aliases: cowAnalyze
+
+
+### ** Examples
+
+##Analyze CowLog datafile named calf1.bh1,
+## codes 1-3 are states and codes 4-5 are states.
+## The names for the states are lying, standing, walking.
+## Not run: 
+##D analyzed <-cowAnalyze(file='calf1.bh1',states=c(1,2,3),
+##D events=c(4,5),state.names=c('lying','standing','walking'))
+## End(Not run)
+ 
+
+
+
+cleanEx(); nameEx("daily")
+### * daily
+
+flush(stderr()); flush(stdout())
+
+### Name: daily
+### Title: Calculate daily values from time series
+### Aliases: daily
+
+
+### ** Examples
+
+data(RIC)
+RIC2 <- clean.RIC(RIC)
+#Daily feed intake of a whole from data set RIC
+herd <- daily(RIC2$intake,time=RIC2$begin,fun=sum)
+#Daily feed intake of individual cows from data set RIC
+herd <- daily(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+
+
+
+cleanEx(); nameEx("day")
+### * day
+
+flush(stderr()); flush(stdout())
+
+### Name: day
+### Title: Convert dates to day numbers
+### Aliases: day
+
+
+### ** Examples
+
+date <- Sys.time()
+day.number <- day(date)
+print(day.number)
+
+
+
+cleanEx(); nameEx("day.string")
+### * day.string
+
+flush(stderr()); flush(stdout())
+
+### Name: day.string
+### Title: Convert dates to string
+### Aliases: day.string
+
+
+### ** Examples
+
+date <- Sys.time()
+day.str <- day.string(date)
+print(day.str)
+
+
+
+cleanEx(); nameEx("hour")
+### * hour
+
+flush(stderr()); flush(stdout())
+
+### Name: hour
+### Title: Convert times to hours
+### Aliases: hour
+
+
+### ** Examples
+
+date <- Sys.time()
+hour.number <- hour(date)
+print(hour.number)
+
+
+
+cleanEx(); nameEx("hourly")
+### * hourly
+
+flush(stderr()); flush(stdout())
+
+### Name: hourly
+### Title: Calculate hourly values from time series
+### Aliases: hourly
+
+
+### ** Examples
+
+data(RIC)
+RIC2 <- clean.RIC(RIC)
+#Hourly feed intake of a whole from data set RIC
+herd <- hourly(RIC2$intake,time=RIC2$begin,fun=sum)
+#Hourly feed intake of individual cows from data set RIC
+herd <- hourly(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+
+
+
+cleanEx(); nameEx("month")
+### * month
+
+flush(stderr()); flush(stdout())
+
+### Name: month
+### Title: Convert dates to month numbers
+### Aliases: month
+
+
+### ** Examples
+
+date <- Sys.time()
+month.number <- month(date)
+print(month)
+
+
+
+cleanEx(); nameEx("monthly")
+### * monthly
+
+flush(stderr()); flush(stdout())
+
+### Name: monthly
+### Title: Calculate monthly values from time series
+### Aliases: monthly
+
+
+### ** Examples
+
+data(RIC)
+RIC2 <- clean.RIC(RIC)
+#Monthly feed intake of a whole from data set RIC
+herd <- monthly(RIC2$intake,time=RIC2$begin,fun=sum)
+#Monthly feed intake of individual cows from data set RIC
+herd <- monthly(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+
+
+
+cleanEx(); nameEx("nunique")
+### * nunique
+
+flush(stderr()); flush(stdout())
+
+### Name: nunique
+### Title: Count unique occurrences of variables
+### Aliases: nunique
+
+
+### ** Examples
+
+#Lets count the number of unique cows that have started to eat each hour
+#in the dataset RIC.
+data(RIC)
+data <- clean.RIC(RIC)
+hourly(RIC$cowID,RIC$begin,nunique)
+
+
+
+
+cleanEx(); nameEx("partOfDay")
+### * partOfDay
+
+flush(stderr()); flush(stdout())
+
+### Name: partOfDay
+### Title: Code data into different parts of day
+### Aliases: partOfDay
+
+
+### ** Examples
+
+#Look at the daily distribution of feed intake of cows
+#in dataset RIC
+data(RIC)
+data <- clean.RIC(RIC)
+#With default split
+data$period <- partOfDay(data$begin)
+#Plot the results
+boxplot(intake~period,data=data,ylab='Feed intake (kg)',
+xlab='Time of day',main='Default settings: start =1, nsplit=4')
+#A different split with directly plotting the result
+boxplot(intake~partOfDay(begin,nsplit=6,start=3),data=data,
+ylab='Feed intake (kg)',xlab='Time of day',main='start=3,nsplit=6')
+
+
+
+cleanEx(); nameEx("read.RIC")
+### * read.RIC
+
+flush(stderr()); flush(stdout())
+
+### Name: read.RIC
+### Title: Read RIC feed measurement system log files
+### Aliases: read.RIC
+
+
+### ** Examples
+
+## Not run: data <- read.RIC('VR080811.DAT')
+
+
+
+cleanEx(); nameEx("week")
+### * week
+
+flush(stderr()); flush(stdout())
+
+### Name: week
+### Title: Convert dates to week numbers
+### Aliases: week
+
+
+### ** Examples
+
+date <- Sys.time()
+week.number <- week(date)
+print(week.number)
+
+
+
+cleanEx(); nameEx("weekly")
+### * weekly
+
+flush(stderr()); flush(stdout())
+
+### Name: weekly
+### Title: Calculate weekly values from time series
+### Aliases: weekly
+
+
+### ** Examples
+
+data(RIC)
+RIC2 <- clean.RIC(RIC)
+#Weekly feed intake of a whole from data set RIC
+herd <- weekly(RIC2$intake,time=RIC2$begin,fun=sum)
+#Weekly feed intake of individual cows from data set RIC
+herd <- weekly(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+
+
+
+### * <FOOTER>
+###
+cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+grDevices::dev.off()
+###
+### Local variables: ***
+### mode: outline-minor ***
+### outline-regexp: "\\(> \\)?### [*]+" ***
+### End: ***
+quit('no')

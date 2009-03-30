@@ -1,0 +1,56 @@
+RIC                  package:Animal                  R Documentation
+
+_R_I_C _r_o_u_g_h_a_g_e _i_n_t_a_k_e _l_o_g
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     A roughage intake log of a one day from Insentec RIC feed
+     measurement system from the University of Helsinki Viikki researc
+     barn in Finland. The data has been imported to R with function
+     read.RIC option clean=F
+
+_U_s_a_g_e:
+
+     data(RIC)
+
+_F_o_r_m_a_t:
+
+     A data frame with 3242 observations on the following 16 variables.
+
+     '_t_r_a_n_s_p_o_n_d_e_r' Transponder number
+
+     '_c_o_w_I_D' Cow number
+
+     '_t_r_o_u_g_h' The number of feed trough
+
+     '_b_e_g_i_n' Start time of the visit
+
+     '_e_n_d' End time of the visit
+
+     '_d_u_r_a_t_i_o_n' Visit duration in seconds
+
+     '_b_e_g_i_n._k_g' Roughage before visit
+
+     '_e_n_d._k_g' Roughage after visit
+
+     '_f_e_e_d._t_y_p_e' Type of feed
+
+     '_i_n_t_a_k_e' Feed intake (kg)
+
+     '_D_M' Dry matter (kg)
+
+     '_e_n_e_r_g_y' Energy (VEM)
+
+     '_p_r_o_t_e_i_n' Protein (kg)
+
+     '_c_r_u_d_e._f_i_b_r_e' Crude fibre (kg)
+
+     '_f_a_t' Fat (kg)
+
+     '_a_s_h' Ash (kg)
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     B.V. Marknesse. Instructions for use. RIC - MANAGEMENT WINDOWS
+     version RW:1.7. English. Insentec
+

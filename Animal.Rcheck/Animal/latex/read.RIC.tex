@@ -1,0 +1,39 @@
+\HeaderA{read.RIC}{Read RIC feed measurement system log files}{read.RIC}
+\begin{Description}\relax
+Reads in roughage intake log files produced by the Insentec
+RIC-Management Windows software. (VRyymmdd.DAT) The function converts
+the start and end times to POSIXct  objects and adds the date to each
+time stamp from the file name.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+read.RIC(file, clean = TRUE)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] The roughage intake log file, (VRyymmdd.DAT)
+\item[\code{clean}] If true the function removes lines with Cow number 0 and
+lines with negative feed intake and visits with 0 duration.
+Values TRUE of FALSE, Defaults to TRUE
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+A data.frame with the formatted insentec data.
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{References}\relax
+B.V. Marknesse. Instructions for use. RIC - MANAGEMENT WINDOWS version
+RW:1.7. English. Insentec
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{clean.RIC}{clean.RIC}}, \code{\LinkA{bouts.RIC}{bouts.RIC}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: data <- read.RIC('VR080811.DAT')
+\end{ExampleCode}
+\end{Examples}
+

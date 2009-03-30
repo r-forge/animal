@@ -1,0 +1,32 @@
+\HeaderA{clean.RIC}{Clean RIC roughage intake log file}{clean.RIC}
+\begin{Description}\relax
+Performs the following clean ups on RIC roughage intake files:
+Removes lines with Cow number 0 and lines with negative feed intake
+and visits with 0 duration. Equal using clean=T with read.RIC.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+clean.RIC(data)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] A data.frame read in with read.RIC
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+Cleaned data.frame
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{read.RIC}{read.RIC}}, \code{\LinkA{bouts.RIC}{bouts.RIC}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+data(RIC)
+cleaned.data <- clean.RIC(RIC)
+\end{ExampleCode}
+\end{Examples}
+

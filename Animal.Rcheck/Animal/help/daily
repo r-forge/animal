@@ -1,0 +1,52 @@
+daily                 package:Animal                 R Documentation
+
+_C_a_l_c_u_l_a_t_e _d_a_i_l_y _v_a_l_u_e_s _f_r_o_m _t_i_m_e _s_e_r_i_e_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Calculate daily values (e.g mean or sum) from time series data.
+     Allows to specify a subject to calculate daily values for several
+     subjects.
+
+_U_s_a_g_e:
+
+     daily(data, time, fun = sum, subject = NULL)
+
+_A_r_g_u_m_e_n_t_s:
+
+    data: A data vector that you want to calculate the daily values for
+
+    time: Time stamps for data in POSIXct format
+
+     fun: The function to apply, defaults to sum
+
+ subject: You can optionally specify to a subject. e.g. to get daily
+          values for each cow in a herd.
+
+_V_a_l_u_e:
+
+     A data.frame with following elements 
+
+     Day: Date
+
+ Subject: Appears only if you have specified a subject
+
+  Result: The result of the function
+
+_A_u_t_h_o_r(_s):
+
+     Matti Pastell <matti.pastell@helsinki.fi>
+
+_S_e_e _A_l_s_o:
+
+     'monthly', 'hourly', 'weekly'
+
+_E_x_a_m_p_l_e_s:
+
+     data(RIC)
+     RIC2 <- clean.RIC(RIC)
+     #Daily feed intake of a whole from data set RIC
+     herd <- daily(RIC2$intake,time=RIC2$begin,fun=sum)
+     #Daily feed intake of individual cows from data set RIC
+     herd <- daily(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+

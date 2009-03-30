@@ -1,0 +1,46 @@
+\HeaderA{hourly}{Calculate hourly values from time series}{hourly}
+\begin{Description}\relax
+Calculate hourly values (e.g mean or sum) from time series data. Allows
+to specify a subject to calculate hourly values for several subjects.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+hourly(data, time, fun = sum, subject = NULL)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] A data vector that you want to calculate the hourly values
+for
+\item[\code{time}] Time stamps for data in POSIXct format
+\item[\code{fun}] The function to apply, defaults to sum
+\item[\code{subject}] You can optionally specify to a subject. e.g. to get
+hourly values for each cow in a herd.
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+A data.frame with following elements
+\begin{ldescription}
+\item[\code{Hour}] Hour 1-24
+\item[\code{Subject}] Appears only if you have specified a subject
+\item[\code{Result}] The result of the function
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{daily}{daily}}, \code{\LinkA{weekly}{weekly}},
+\code{\LinkA{monthly}{monthly}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+data(RIC)
+RIC2 <- clean.RIC(RIC)
+#Hourly feed intake of a whole from data set RIC
+herd <- hourly(RIC2$intake,time=RIC2$begin,fun=sum)
+#Hourly feed intake of individual cows from data set RIC
+herd <- hourly(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+\end{ExampleCode}
+\end{Examples}
+

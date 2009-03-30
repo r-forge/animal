@@ -1,0 +1,33 @@
+\HeaderA{day.string}{Convert dates to string}{day.string}
+\begin{Description}\relax
+This function converts POSIXt dates to a string reprentation of the
+date. The string format is convenient when calculating daily summaries etc.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+day.string(x)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A POSIXt object
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+Day in string format.
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{day}{day}}, \code{\LinkA{hour}{hour}},
+\code{\LinkA{week}{week}}, \code{\LinkA{month}{month}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+date <- Sys.time()
+day.str <- day.string(date)
+print(day.str)
+\end{ExampleCode}
+\end{Examples}
+

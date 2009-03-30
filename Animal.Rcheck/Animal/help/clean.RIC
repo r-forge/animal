@@ -1,0 +1,36 @@
+clean.RIC               package:Animal               R Documentation
+
+_C_l_e_a_n _R_I_C _r_o_u_g_h_a_g_e _i_n_t_a_k_e _l_o_g _f_i_l_e
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Performs the following clean ups on RIC roughage intake files:
+     Removes lines with Cow number 0 and lines with negative feed
+     intake and visits with 0 duration. Equal using clean=T with
+     read.RIC.
+
+_U_s_a_g_e:
+
+     clean.RIC(data)
+
+_A_r_g_u_m_e_n_t_s:
+
+    data: A data.frame read in with read.RIC
+
+_V_a_l_u_e:
+
+     Cleaned data.frame
+
+_A_u_t_h_o_r(_s):
+
+     Matti Pastell <matti.pastell@helsinki.fi>
+
+_S_e_e _A_l_s_o:
+
+     'read.RIC', 'bouts.RIC'
+
+_E_x_a_m_p_l_e_s:
+
+     data(RIC)
+     cleaned.data <- clean.RIC(RIC)
+

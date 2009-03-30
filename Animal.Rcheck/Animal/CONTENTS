@@ -1,0 +1,119 @@
+Entry: RIC
+Aliases: RIC
+Keywords: datasets
+Description: RIC roughage intake log
+URL: ../../../library/Animal/html/RIC.html
+
+Entry: bouts.RIC
+Aliases: bouts.RIC
+Keywords: 
+Description: Merge bouts from RIC roughage intake files
+URL: ../../../library/Animal/html/bouts.RIC.html
+
+Entry: clean.RIC
+Aliases: clean.RIC
+Keywords: 
+Description: Clean RIC roughage intake log file
+URL: ../../../library/Animal/html/clean.RIC.html
+
+Entry: cowAnalyze
+Aliases: cowAnalyze
+Keywords: 
+Description: Analyze time coded behavior data
+URL: ../../../library/Animal/html/cowAnalyze.html
+
+Entry: daily
+Aliases: daily
+Keywords: 
+Description: Calculate daily values from time series
+URL: ../../../library/Animal/html/daily.html
+
+Entry: day
+Aliases: day
+Keywords: 
+Description: Convert dates to day numbers
+URL: ../../../library/Animal/html/day.html
+
+Entry: day.string
+Aliases: day.string
+Keywords: 
+Description: Convert dates to string
+URL: ../../../library/Animal/html/day.string.html
+
+Entry: delete.duplicates
+Aliases: delete.duplicates
+Keywords: 
+Description: Delete duplicated state events
+URL: ../../../library/Animal/html/delete.duplicates.html
+
+Entry: freq.count
+Aliases: freq.count
+Keywords: 
+Description: Count frequency of behaviors
+URL: ../../../library/Animal/html/freq.count.html
+
+Entry: hour
+Aliases: hour
+Keywords: 
+Description: Convert times to hours
+URL: ../../../library/Animal/html/hour.html
+
+Entry: hourly
+Aliases: hourly
+Keywords: 
+Description: Calculate hourly values from time series
+URL: ../../../library/Animal/html/hourly.html
+
+Entry: label.data
+Aliases: label.data
+Keywords: 
+Description: Label measurement data
+URL: ../../../library/Animal/html/label.data.html
+
+Entry: month
+Aliases: month
+Keywords: 
+Description: Convert dates to month numbers
+URL: ../../../library/Animal/html/month.html
+
+Entry: monthly
+Aliases: monthly
+Keywords: 
+Description: Calculate monthly values from time series
+URL: ../../../library/Animal/html/monthly.html
+
+Entry: nunique
+Aliases: nunique
+Keywords: 
+Description: Count unique occurrences of variables
+URL: ../../../library/Animal/html/nunique.html
+
+Entry: partOfDay
+Aliases: partOfDay
+Keywords: 
+Description: Code data into different parts of day
+URL: ../../../library/Animal/html/partOfDay.html
+
+Entry: read.RIC
+Aliases: read.RIC
+Keywords: 
+Description: Read RIC feed measurement system log files
+URL: ../../../library/Animal/html/read.RIC.html
+
+Entry: state.durations
+Aliases: state.durations
+Keywords: 
+Description: Calculate state durations
+URL: ../../../library/Animal/html/state.durations.html
+
+Entry: week
+Aliases: week
+Keywords: 
+Description: Convert dates to week numbers
+URL: ../../../library/Animal/html/week.html
+
+Entry: weekly
+Aliases: weekly
+Keywords: 
+Description: Calculate weekly values from time series
+URL: ../../../library/Animal/html/weekly.html

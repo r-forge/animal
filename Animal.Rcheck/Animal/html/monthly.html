@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Calculate monthly values from time series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for monthly {Animal}"><tr><td>monthly {Animal}</td><td align="right">R Documentation</td></tr></table>
+<h2>Calculate monthly values from time series</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Calculate monthly values (e.g mean or sum) from time series data. Allows
+to specify a subject to calculate monthly values for several subjects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+monthly(data, time, fun = sum, subject = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+A data vector that you want to calculate the monthly values
+for</td></tr>
+<tr valign="top"><td><code>time</code></td>
+<td>
+Time stamps for data in POSIXct format</td></tr>
+<tr valign="top"><td><code>fun</code></td>
+<td>
+The function to apply, defaults to sum</td></tr>
+<tr valign="top"><td><code>subject</code></td>
+<td>
+You can optionally specify to a subject. e.g. to get
+monthly values for each cow in a herd.</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+A data.frame with following elements
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>Day</code></td>
+<td>
+Date</td></tr>
+<tr valign="top"><td><code>Subject</code></td>
+<td>
+Appears only if you have specified a subject</td></tr>
+<tr valign="top"><td><code>Result</code></td>
+<td>
+The result of the function</td></tr>
+</table>
+
+<h3>Author(s)</h3>
+
+<p>
+Matti Pastell &lt;matti.pastell@helsinki.fi&gt;
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="monthly.html">monthly</a></code>, <code><a href="hourly.html">hourly</a></code>,
+<code><a href="weekly.html">weekly</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(RIC)
+RIC2 &lt;- clean.RIC(RIC)
+#Monthly feed intake of a whole from data set RIC
+herd &lt;- monthly(RIC2$intake,time=RIC2$begin,fun=sum)
+#Monthly feed intake of individual cows from data set RIC
+herd &lt;- monthly(RIC2$intake,time=RIC2$begin,fun=sum,subject=RIC2$cowID)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>Animal</em> version 1.01 <a href="00Index.html">Index]</a></div>
+
+</body></html>

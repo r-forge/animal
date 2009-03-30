@@ -1,0 +1,37 @@
+\HeaderA{nunique}{Count unique occurrences of variables}{nunique}
+\begin{Description}\relax
+Returns the number of unique occurrences of each level in the input object.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+nunique(x)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] Numeric, character of factor vector
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+Provides a convenient way to calculate the unique occurrences of certain
+events in daily, hourly, weekly and monthly data e.g. calculate the
+number of unique animals that have used the feeding throughs each hour
+in dataset RIC (see examples).
+\end{Details}
+\begin{Value}
+Number of unique levels in the input object.
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{Examples}
+\begin{ExampleCode}
+#Lets count the number of unique cows that have started to eat each hour
+#in the dataset RIC.
+data(RIC)
+data <- clean.RIC(RIC)
+hourly(RIC$cowID,RIC$begin,nunique)
+
+\end{ExampleCode}
+\end{Examples}
+

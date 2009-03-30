@@ -1,0 +1,49 @@
+\HeaderA{cowAnalyze}{Analyze time coded behavior data}{cowAnalyze}
+\begin{Description}\relax
+This function provides descriptive statistics from time coded behavior
+datafiles recorded with CowLog.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+cowAnalyze(file = NULL, states = NULL, events = NULL,
+ state.names = NULL, event.names = NULL)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] CowLog data file, or a file in same format
+\item[\code{states}] A vector with the codes in the file that belong to states
+\item[\code{events}] A vector with codes in the file that belong to events
+\item[\code{state.names}] A character vector with the names for the states 
+\item[\code{event.names}] A character vector with the names for the events
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+\begin{ldescription}
+\item[\code{state}] Results for states
+\item[\code{event}] Results for events
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Matti Pastell <matti.pastell@helsinki.fi>
+\end{Author}
+\begin{References}\relax
+Hanninen, L. \& Pastell, M. CowLog: Open source software for coding
+behaviors from digital video. Behavior Research Methods. 41(2),
+472-476.
+
+http://www.mm.helsinki.fi/~mpastell/CowLog
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+##Analyze CowLog datafile named calf1.bh1,
+## codes 1-3 are states and codes 4-5 are states.
+## The names for the states are lying, standing, walking.
+## Not run: 
+analyzed <-cowAnalyze(file='calf1.bh1',states=c(1,2,3),
+events=c(4,5),state.names=c('lying','standing','walking'))
+## End(Not run)
+ 
+\end{ExampleCode}
+\end{Examples}
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Convert dates to month numbers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for month {Animal}"><tr><td>month {Animal}</td><td align="right">R Documentation</td></tr></table>
+<h2>Convert dates to month numbers</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function extracts the day of month from date objects
+</p>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+A POSIXt object</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>month</code></td>
+<td>
+Month number of the input object</td></tr>
+</table>
+
+<h3>Author(s)</h3>
+
+<p>
+Matti Pastell &lt;matti.pastell@helsinki.fi&gt;
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="day.html">day</a></code>, <code><a href="day.string.html">day.string</a></code>,
+<code><a href="hour.html">hour</a></code>,<code><a href="week.html">week</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+date &lt;- Sys.time()
+month.number &lt;- month(date)
+print(month)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>Animal</em> version 1.01 <a href="00Index.html">Index]</a></div>
+
+</body></html>

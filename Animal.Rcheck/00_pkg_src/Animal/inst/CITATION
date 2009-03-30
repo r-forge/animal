@@ -1,0 +1,20 @@
+desc <- packageDescription("Animal")year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)vers <- paste("R package version", desc$Version)
+
+citHeader("To cite package 'Animal' in publications use:")
+
+citEntry(entry="Article",
+	title="CowLog: Open source software for coding behaviors from digital video.",
+	author = personList(as.person("L. Hanninen"),
+						as.person("M. Pastell")),
+	journal= "Behavior Research Methods",
+	year = 2009,
+	volume = "41(2)",
+	pages = "472-476",
+	
+	
+         textVersion = 
+         paste("Hanninen, L. & Pastell, M. 2009.",
+         "CowLog: Open source software for coding behaviors from digital video.",
+         "Behavior Research Methods. 41(2), 472-476")
+       
+)
