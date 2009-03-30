@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt,final]{article}
+\usepackage{matti}
+\usepackage{eso-pic}
+\usepackage{wallpaper}
+%Ääkköset
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{times}
+
+%Ei sisennystä
+%\setlength\parindent{0in}
+
+
+\begin{document}
+
+
+
+\begin{titlepage}
+\ThisULCornerWallPaper{0.3}{logo}
+
+
+%\includegraphics[width=0.6\textwidth]{logo}\\[2cm]
+
+\vspace*{2cm}
+%\hspace{5cm}
+
+
+\noindent \textsc{\Large Analyze Animal Behavior Data Using:}\\[0.1cm]
+% Title
+\HRule \\[0.2cm]
+\begin{center}
+{ \huge \bfseries Animal}\\[0.4cm]
+\HRule \\[5cm]
+\end{center}
+
+%\vfill
+
+
+\noindent \textsc{\Large Matti Pastell}\\[0.5cm]
+\noindent \textsc{\Large Department of Agrotechnology \\ \& Research
+  Center of Animal Welfare}\\[0.5cm]
+
+
+%\AddToShipoutPicture{\includegraphics[height=0.5\paperheight]{MMM}}
+\ThisLRCornerWallPaper{0.6}{MMM}
+
+\end{titlepage}
+
+
+%\begin{thebibliography}{9}
+ % \bibitem{}
+%\end{thebibliography}
+
+\end{document}
