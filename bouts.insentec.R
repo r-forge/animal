@@ -20,32 +20,32 @@ for (i in 1:l){
   lehma <- data[data$cowID==lehmat[i],]
   summat <- kestot <- boutit <- vector('numeric',length=nrow(lehma))
 
-  attach(lehma)
+  #attach(lehma)
   #Käsitellään lehmän kaikki syönnit
   for (j in 2:nrow(lehma)){
-    ero <- difftime(begin[j],end[j-1],units='mins')
+    ero <- difftime(lehma$begin[j],lehma$end[j-1],units='mins')
     #Eka rivi on erikoistapaus
     if (j==2 & ero<bout.diff){
-      summa <- intake[j-1]; kesto.summa <- duration[j-1]}
+      summa <- lehma$intake[j-1]; kesto.summa <- lehma$duration[j-1]}
 
     #erot[j] <- ero
     # Yhdistetään ne syönnit joiden väliaika alle 5 min
     if (ero<bout.diff){
-          summa <- summa + intake[j] #Lasketaan syonti yhteen edellisen kanssa
-          kesto.summa <- kesto.summa +duration[j] #Kestoaikojen summa
+          summa <- summa + lehma$intake[j] #Lasketaan syonti yhteen edellisen kanssa
+          kesto.summa <- kesto.summa +lehma$duration[j] #Kestoaikojen summa
       if (n==0){
         #Edellisen syönnin alkuaika on uusi alkuaika
-        korj.alku <- begin[j-1]
+        korj.alku <- lehma$begin[j-1]
                         }
        n <- n+1
     }
     if (ero>=bout.diff) {
-      korj.alku <- begin[j]
+      korj.alku <- lehma$begin[j]
       #Edellinen syönti oli Boutin loppu
       boutit[j-1] <- 1
       n <- 0
-      summa <- intake[j]
-      kesto.summa <- duration[j]
+      summa <- lehma$intake[j]
+      kesto.summa <- lehma$duration[j]
     }
      
     alut[j] <- as.POSIXct(korj.alku)
@@ -55,9 +55,9 @@ for (i in 1:l){
 
   #Jokaisen lehmän jälkeen tehtävät
   boutit[nrow(lehma)] <- 1
-  alut[1] <- begin[1]
-  kestot[1] <- duration[1]
-  detach(lehma)
+  alut[1] <- lehma$begin[1]
+  kestot[1] <- lehma$duration[1]
+  #detach(lehma)
   
   #Yhdistetään vanhat ja uudet tiedot, poistetaan virheelliset vanhat
   #korjattu <- data.frame(lehma,alut,boutit,summat,kestot)
