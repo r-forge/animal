@@ -30,8 +30,7 @@
   }
 }
 
-\references{B.V. Marknesse. Instructions for use. RIC - MANAGEMENT WINDOWS version
-  RW:1.7. English. Insentec
+\references{B.V. Marknesse. Instructions for use. RIC - MANAGEMENT WINDOWS version RW:1.7. English. Insentec
 }
 
 \keyword{datasets}

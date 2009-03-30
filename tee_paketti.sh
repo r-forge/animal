@@ -10,3 +10,4 @@ R CMD build Animal
 R CMD INSTALL Animal_1.01.tar.gz 
 R CMD check Animal_1.01.tar.gz
 R CMD Rd2dvi --pdf Animal
+cp -r Animal pkg
