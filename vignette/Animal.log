@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2008.10.28)  25 MAR 2009 15:16
+This is pdfTeX, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.3.26)  31 MAR 2009 07:47
 entering extended mode
 **Animal
 (./Animal.tex
@@ -332,7 +332,7 @@ File: Animal-007.pdf Graphic file (type pdf)
 (./Animal.aux) ) 
 Here is how much of TeX's memory you used:
  4205 strings out of 94073
- 58204 string characters out of 1164796
+ 58204 string characters out of 1164797
  105338 words of memory out of 1500000
  7379 multiletter control sequences out of 10000+50000
  45375 words of font info for 86 fonts, out of 1200000 for 2000
@@ -350,7 +350,7 @@ ti10.pfb></opt/local/share/texmf-dist/fonts/type1/bluesky/cm/cmti12.pfb></opt/l
 ocal/share/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></opt/local/share/texmf
 -dist/fonts/type1/bluesky/cm/cmtt12.pfb></opt/local/share/texmf-dist/fonts/type
 1/bluesky/cm/cmtt8.pfb>
-Output written on Animal.pdf (6 pages, 140661 bytes).
+Output written on Animal.pdf (6 pages, 140718 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  16 named destinations out of 1000 (max. 131072)

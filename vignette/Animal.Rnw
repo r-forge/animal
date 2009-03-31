@@ -4,7 +4,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{cite}
-
+%\VignetteIndexEntry{Using Animal} 
 
 \hypersetup{
   pdfauthor={Matti Pastell},
@@ -169,9 +169,9 @@ detach(bouts)
 
 
 \begin{thebibliography}{9}
-  \bibitem{cowlog} Hänninen, L. \& Pastell, M. CowLog: Open source
+  \bibitem{cowlog} Hänninen, L. \& Pastell, M. 2009. CowLog: Open source
     software for coding behaviors from digital video. Behavior
-    Research Methods. (Accepted for publication) 
+    Research Methods. 41(2), 472-476.
 \end{thebibliography}
 
 \end{document}
