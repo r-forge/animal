@@ -1,2 +1,0 @@
-#Asennetaan paketti
-install.packages('matti_1.0.tar.gz',repos=NULL,type='source')
