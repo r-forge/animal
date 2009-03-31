@@ -27,7 +27,7 @@ cowAnalyze(file = NULL, states = NULL, events = NULL,
   behaviors from digital video. Behavior Research Methods. 41(2),
   472-476.
   
-  http://www.mm.helsinki.fi/~mpastell/CowLog
+\url{http://www.mm.helsinki.fi/~mpastell/CowLog}
 }
 
 \author{Matti Pastell <matti.pastell@helsinki.fi>}

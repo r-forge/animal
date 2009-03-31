@@ -81,7 +81,7 @@ behavior data originating from a variety of sources. The package was
 originally created to analyze data files from CowLog (open source
 software for coding behaviors from digital video), but the
 functionality has been extended to cover also other data sources.
-This document briefly describes some the key features of the package
+This document is still very much under development, but the aim is to describe some the key features of the package
 via simple examples. \\
 Animal has been created in the Research Centre of Animal Welfare
 \footnote{\url{http://http://www.vetmed.helsinki.fi/hyvinvointikeskus/english/index.htm}}.

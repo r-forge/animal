@@ -158,6 +158,7 @@ source('time.functions.R')
 #Funktiot insentec kuppidatan käsittelyyn ja esimerkkidata
 source('insentec.R')
 source('bouts.insentec.R')
+source('cowlog_functions.R')
 RIC <- read.RIC('VR090318.DAT',clean=F)
 
 
