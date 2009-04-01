@@ -46,12 +46,12 @@ echo $contents; } ?>
 The Animal package is a collection of functions for analyzing animal (including humans) behavior data originating from a variety of sources. The package has functions to analyze time coded behaviors from CowLog (open source software for coding behaviors from digital video) data files and observation files with similar format. Other features include hourly, daily, weekly and monthly summaries of time coded data, analysis of RIC (roughage intake system, Insentec automation) data files and labeling measurement data according to behavioral observations for e.g model building purposes.  
 </p>
 
-</p>The project was created and is authored by <a href="http://www.mm.helsinki.fi/~mpastell/">Matti Pastell</a> and the latest stable version of the package can be downloaded from CRAN.</p>
+</p>The project was created and is admistered by <strong><a href="http://www.mm.helsinki.fi/~mpastell/">Matti Pastell</a></strong> and the latest stable version of the package can be downloaded from CRAN.</p>
 
-					     <p>Use the <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>project summary page</strong></a> to get the development version, report bugs, ask for features or sign up as a developer.
+<p>Use the <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>project summary page</strong></a> to get the development version, report bugs, ask for features or sign up as a developer.
 
 <p><strong>Links:</strong><p>
-<a href="http://www.mm.helsinki.fi/~mpastell/CowLog/">CowLog</a> - Open source software for coding behaviors from digital video
+<strong><a href="http://www.mm.helsinki.fi/~mpastell/CowLog/">CowLog</a></strong> - Open source software for coding behaviors from digital video
 
 
 

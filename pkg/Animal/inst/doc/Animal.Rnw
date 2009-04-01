@@ -169,7 +169,7 @@ detach(bouts)
 
 
 \begin{thebibliography}{9}
-  \bibitem{cowlog} Hänninen, L. \& Pastell, M. 2009. CowLog: Open source
+  \bibitem{cowlog} Hanninen, L. \& Pastell, M. 2009. CowLog: Open source
     software for coding behaviors from digital video. Behavior
     Research Methods. 41(2), 472-476.
 \end{thebibliography}
