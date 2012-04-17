@@ -1,6 +1,7 @@
 \documentclass{article}
 \SweaveOpts{height=5,prefix=T}
 
+\usepackage[utf8x]{inputenc}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{cite}
