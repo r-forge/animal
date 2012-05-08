@@ -1,7 +1,7 @@
 \documentclass{article}
 \SweaveOpts{height=5,prefix=T}
 
-\usepackage[utf8x]{inputenc}
+\usepackage[latin9]{inputenc}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{cite}
@@ -62,7 +62,7 @@
 \author{
 \Large Matti Pastell\\
 \url{matti.pastell@helsinki.fi}\\[0.5cm]
-Department of Agrotechnology \& \\
+Department of Agricultural Sciences \& \\
 Center of Animal Welfare, \textit{University of Helsinki}
 }
 
@@ -91,7 +91,7 @@ Animal has been created in the Research Centre of Animal Welfare
 \section{CowLog data}
 The package has basic analysis functions for analyzing time coded
 behavioral data coded with CowLog\cite{cowlog}
-\footnote{\url{http://www.mm.helsinki.fi/~mpastell/CowLog}}.
+\footnote{\url{http://mpastell.com/CowLog}}.
 The main function in the package is \textit{cowAnalyze}. The function
 takes the data file name, labels of the codes and the type (event or
 state) of the codes as inputs, and gives a summary table and plot of
@@ -170,7 +170,7 @@ detach(bouts)
 
 
 \begin{thebibliography}{9}
-  \bibitem{cowlog} Hanninen, L. \& Pastell, M. 2009. CowLog: Open source
+  \bibitem{cowlog} Hänninen, L. \& Pastell, M. 2009. CowLog: Open source
     software for coding behaviors from digital video. Behavior
     Research Methods. 41(2), 472-476.
 \end{thebibliography}
