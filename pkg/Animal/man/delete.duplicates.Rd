@@ -2,6 +2,7 @@
 \alias{delete.duplicates}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Delete duplicated state events}
+
 \description{
 Used internally by cowAnalyze
 }
@@ -12,8 +13,7 @@ delete.duplicates(obs)
 \arguments{
   \item{obs}{A dataframe containing state events}
 }
-\details{
 
-}
+
 
 \author{Matti Pastell}

@@ -1,4 +1,4 @@
-`partOfDay` <-
+partOfDay <-
 function (time, nsplit = 4, start = 1) 
 {
     part <- round(c(seq(from = start, to = (23 + start), by = 24/nsplit), 
@@ -15,5 +15,5 @@ function (time, nsplit = 4, start = 1)
     }
     if (start == 1) 
         labels[nsplit] <- paste(part[nsplit], "-24", sep = "")
-    period <- factor(period, levels = 1:nsplit, label = labels)
+    period <- factor(period, levels = 1:nsplit, labels = labels)
 }

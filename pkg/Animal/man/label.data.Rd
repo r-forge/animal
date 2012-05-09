@@ -46,13 +46,10 @@ The original data with two additional elements: \code{label} which contains
 the labels for each row in the data and \code{freq} which tells the number of
 the label counting from the beginning. 
 }
-\references{}
+
 
 
 \author{Matti Pastell <matti.pastell@helsinki.fi>}
 
 
-\examples{
-
-}
 

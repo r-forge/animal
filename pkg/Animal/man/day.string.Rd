@@ -12,8 +12,8 @@ day.string(x)
 \arguments{
   \item{x}{A POSIXt object}
 }
-\details{
-}
+
+
 \value{
 Day in string format.
 }
@@ -24,7 +24,8 @@ Day in string format.
 
 \seealso{\code{\link{day}}, \code{\link{hour}},
    \code{\link{week}}, \code{\link{month}}}
-\examples{
+
+ \examples{
 date <- Sys.time()
 day.str <- day.string(date)
 print(day.str)
